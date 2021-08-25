@@ -1,0 +1,58 @@
+﻿@model ShoppingBagViewModel
+
+
+<h1>@Model.IdentityUser.UserName 's shoppingbag</h1>
+
+<h3>Created at: @Model.Date</h3>
+<br />
+<br />
+<br />
+<hr />
+<h1>Products</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                ProductName
+            </th>
+            <th>
+                Quantity
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+                Total per product
+            </th>
+            <th>
+                Total price:
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var shoppingItem in Model.ShoppingItems)
+        {
+            <tr>
+                <td>
+                    @shoppingItem.shoppingItems.Product.Name
+                </td>
+                <td>
+                    @shoppingItem.shoppingItems.Quantity
+                </td>
+                <td>
+                    @shoppingItem.shoppingItems.Product.Price €
+                </td>
+                <td>
+                    @shoppingItem.shoppingItems.Product.Price * @shoppingItem.shoppingItems.Quantity = @shoppingItem.TotalPerProduct €
+                </td>
+            </tr>
+        }
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>@Model.AbsoluteTotal €</td>
+        </tr>
+    </tbody>
+</table>

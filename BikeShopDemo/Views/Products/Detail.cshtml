@@ -1,0 +1,42 @@
+﻿@model BikeShopDemo.Models.Product
+
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<h1>Detail</h1>
+
+<div>
+    <h4>Product</h4>
+    <hr />
+    <dl class="row">
+        <dd class="col-sm-12">
+            <img src="~/Images/@Model.Image" height="250px" />
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+    </dl>
+</div>
+@using (Html.BeginForm("AddProductToBag", "ShoppingBags", FormMethod.Post))
+{
+    <br />
+    <input name="productId" value="@Model.Id" type="hidden" />
+    <br />
+    <input name="quantity" value="quantity" type="number" />
+    <br />
+    <input type="submit" value="Buy this bike!"  class="btn btn-primary"/>
+}
+<div>
+    <a asp-action="Index">Back to List</a>
+
+</div>

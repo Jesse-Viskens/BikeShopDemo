@@ -1,0 +1,12 @@
+﻿@model Product
+@{
+    ViewData["Title"] = "BikeShop";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to Jesse's Bikeshop</h1>
+    <p>Feel free to look around</p>
+    <a href='@Url.Action("Index","Products")'>
+        <img src="~/Images/@Model.Image" height="250px"/>
+    </a>
+</div>
